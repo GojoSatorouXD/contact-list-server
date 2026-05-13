@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Contactos</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="header">
+      <div class="header-icons">
+        <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
+        <div class="icon-box"><i class="fa-solid fa-at"></i></div>
+        <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
+        <div class="hand-icon">👋</div>
+      </div>
+      <h1 class="title">Lista de Contactos</h1>
+    </div>
+
+    <div class="form-wrapper">
+      <input type="text" id="inputName" placeholder="Ingresa tu nombre" />
+      <span class="error-msg" id="errorName"></span>
+
+      <input type="text" id="inputLastname" placeholder="Ingresa tu apellido" />
+      <span class="error-msg" id="errorLastname"></span>
+
+      <input type="tel" id="inputPhone" placeholder="Ingresa tu teléfono" />
+      <span class="error-msg" id="errorPhone"></span>
+
+      <input type="text" id="inputCity" placeholder="Ingresa tu ciudad" />
+      <span class="error-msg" id="errorCity"></span>
+
+      <input type="text" id="inputAddress" placeholder="Ingresa tu dirección" />
+      <span class="error-msg" id="errorAddress"></span>
+
+      <div class="gender-group">
+        <label>
+          <input type="radio" name="gender" value="female" checked />
+          Femenino
+        </label>
+        <label>
+          <input type="radio" name="gender" value="male" />
+          Masculino
+        </label>
+      </div>
+
+      <button id="btnAdd" class="btn-add" onclick="handleAdd()">AGREGAR</button>
+
+      <input type="hidden" id="editId" value="" />
+    </div>
+
+    <div id="spinner" class="spinner-overlay hidden">
+      <div class="spinner"></div>
+      <p>Cargando...</p>
+    </div>
+
+    <div id="contactList" class="contact-list"></div>
+
+  </div>
+
+  <div id="editModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Editar Contacto</h2>
+      <input type="text" id="editName" placeholder="Nombre" />
+      <span class="error-msg" id="editErrorName"></span>
+
+      <input type="text" id="editLastname" placeholder="Apellido" />
+      <span class="error-msg" id="editErrorLastname"></span>
+
+      <input type="tel" id="editPhone" placeholder="Teléfono" />
+      <span class="error-msg" id="editErrorPhone"></span>
+
+      <input type="text" id="editCity" placeholder="Ciudad" />
+      <span class="error-msg" id="editErrorCity"></span>
+
+      <input type="text" id="editAddress" placeholder="Dirección" />
+      <span class="error-msg" id="editErrorAddress"></span>
+
+      <div class="gender-group">
+        <label>
+          <input type="radio" name="editGender" value="female" />
+          Femenino
+        </label>
+        <label>
+          <input type="radio" name="editGender" value="male" />
+          Masculino
+        </label>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn-save" onclick="saveEdit()">GUARDAR</button>
+        <button class="btn-cancel" onclick="closeModal()">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
